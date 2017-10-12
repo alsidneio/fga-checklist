@@ -1,0 +1,56 @@
+body{
+    background: #50E3C2;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+}
+.white-space{
+    background: #FFF;
+    border-radius:20px;
+    width: 690px;
+    height: 835px;
+    display: block;
+    margin: 95px auto 94px auto;
+}
+
+.grey{
+    color:#292929;
+    opacity: 0.25;
+}
+.center{
+    text-align:center;
+}
+.views , .complete-delete{
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.666667px;
+    font-weight: 700;
+}
+
+.complete-delete p, .views p{
+    display: inline;
+    padding: 10px;
+}
+
+.complete-delete{
+    margin-left: 60px;
+    float: left;
+}
+.views{
+    float:right;
+    margin-right: 60px;
+}
+
+.input{
+    width: 500px;
+    border-bottom: 1px solid;
+    display: block;
+    margin: auto;
+    margin-top: 10
+}
+.input h3{
+    font-weight: 200;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+
+
