@@ -14,4 +14,13 @@ $("#dayDisplay").append(dayName[day]);
 $("#dateDisplay").append(today);
 
 //-----------------------------------------------------------------------------
+var task=$("#task").val();
+$("input").keypress(function(e) {    //Listening for the ENTER key on the input field
+    if(e.which == 13) { 
+    console.log(task); 
+    return task;
+    }
+    
+   // $("<h3>"+task+"</h3>").appendTo(".list");
+});
 

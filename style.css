@@ -46,11 +46,15 @@ body{
     margin: auto;
     margin-top: 10
 }
-.input h3{
+.input input{
     font-weight: 200;
     font-size: 18px;
     padding-bottom: 10px;
+    border: none;
+    width:100%;
 }
-
+input:focus{
+    outline: none;
+}
 
 
