@@ -40,12 +40,16 @@ document.addEventListener("click",function(e){
         var clickDiv= document.getElementById(specificId);
         clickDiv.textContent="DELETE";
         clickDiv.style.color="red";
-        clickDiv.parentElement.firstChild.className+=" strikeThrough";
-        
+        clickDiv.parentElement.firstChild.className+=" strikeThrough";   
+    }
+    if(e.target.textContent=="DELETE"){
+        var specificId=e.target.id;
+        var clickDiv= document.getElementById(specificId);
+        clickDiv.parentElement.remove(); 
     }
 
     if(e.target.id=="active"){
-        var deleted =document.getElementsByClassName("strikeThrough");
+        var deleted =document.getElementsByClassName("status");
         for(var j=0; j<deleted.length; j++){
             if(deleted[j].textContent=="DELETE"){
                 deleted[j].parentElement.className="hide";
@@ -72,6 +76,23 @@ document.addEventListener("click",function(e){
         for(var j=0; j<all.length; j++){
          all[j].parentElement.className="container";            
         }      
+    }
+
+    if(e.target.id=="comp-all"){
+        var all =document.getElementsByClassName("status");
+        for(var j=0; j<all.length; j++){
+            all[j].textContent="DELETE";
+            all[j].style.color="red";
+            all[j].parentElement.firstChild.className+=" strikeThrough";           
+           }  
+    }
+
+    if(e.target.id=="del-all"){
+        
+        var clearList=document.getElementsByClassName("container");
+        while(clearList.length){
+            clearList[0].remove();
+        }
     }
 });
 
