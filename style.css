@@ -82,4 +82,11 @@ input[type="submit"]{
     cursor: pointer;
     cursor:hand;
 } 
+.strikeThrough{
+    color:#979797;
+    text-decoration: line-through;
+}
+.hide{
+    display: none;
+}
 

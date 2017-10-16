@@ -33,13 +33,48 @@ function saveTask(e){
     status.appendChild(document.createTextNode("COMPLETE"));
     i++
 }
-document.addEventListener("click",function(){
-    if(this.className=="status"){
-    console.log(this);
-    alert("The complete has been clicked");
+
+document.addEventListener("click",function(e){
+    if(e.target.className=="status"){
+        var specificId=e.target.id;
+        var clickDiv= document.getElementById(specificId);
+        clickDiv.textContent="DELETE";
+        clickDiv.style.color="red";
+        clickDiv.parentElement.firstChild.className+=" strikeThrough";
+        
     }
-    console.log(getElementById(this).value);
+
+    if(e.target.id=="active"){
+        var deleted =document.getElementsByClassName("strikeThrough");
+        for(var j=0; j<deleted.length; j++){
+            if(deleted[j].textContent=="DELETE"){
+                deleted[j].parentElement.className="hide";
+            }
+            if(deleted[j].textContent=="COMPLETE"){
+                deleted[j].parentElement.className="container";
+            }
+        }      
+    }
+
+    if(e.target.id=="complete"){
+        var active =document.getElementsByClassName("status");
+        for(var j=0; j<active.length; j++){
+            if(active[j].textContent=="COMPLETE"){
+                active[j].parentElement.className="hide";
+            }
+            if(active[j].textContent=="DELETE"){
+                active[j].parentElement.className="container";
+            }
+        }      
+    }
+    if(e.target.id=="all"){
+        var all =document.getElementsByClassName("status");
+        for(var j=0; j<all.length; j++){
+         all[j].parentElement.className="container";            
+        }      
+    }
 });
+
 document.getElementById("task").addEventListener("keydown",function(e){
         if(e.key=="Enter"){
             e.preventDefault();
