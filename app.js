@@ -19,14 +19,13 @@ function saveTask(e){
     var container=document.createElement("div"); //create the list element 
     var listItem=document.createElement("div");
     var status=document.createElement("a");
-
     
     document.getElementById("list-space").appendChild(container); //atttach li element to ul element 
     container.setAttribute("id","container-"+i);
     container.setAttribute("class","container");
     document.getElementById("container-"+i).appendChild(listItem);
     listItem.className="item";
-    listItem.appendChild(document.createTextNode(task)); //attach the input to the li element 
+    listItem.appendChild(document.createTextNode(task));
     document.getElementById("container-"+i).appendChild(status)
     status.className="status";
     status.setAttribute("id","status-"+i)
@@ -35,20 +34,23 @@ function saveTask(e){
 }
 
 document.addEventListener("click",function(e){
-    if(e.target.className=="status"){
-        var specificId=e.target.id;
-        var clickDiv= document.getElementById(specificId);
-        clickDiv.textContent="DELETE";
-        clickDiv.style.color="red";
-        clickDiv.parentElement.firstChild.className+=" strikeThrough";   
-    }
     if(e.target.textContent=="DELETE"){
         var specificId=e.target.id;
         var clickDiv= document.getElementById(specificId);
         clickDiv.parentElement.remove(); 
     }
+    
+    if(e.target.className=="status"){
+        var specificId=e.target.id; //get id of specif target clicked
+        var clickDiv= document.getElementById(specificId); //get the element with target ID 
+        clickDiv.textContent="DELETE"; //set the text node to DELETE
+        clickDiv.style.color="red";
+        clickDiv.parentElement.firstChild.className+=" strikeThrough";   
+    }
+   
 
     if(e.target.id=="active"){
+        document.getElementById("active").className+=" highlight";
         var deleted =document.getElementsByClassName("status");
         for(var j=0; j<deleted.length; j++){
             if(deleted[j].textContent=="DELETE"){
@@ -72,6 +74,7 @@ document.addEventListener("click",function(e){
         }      
     }
     if(e.target.id=="all"){
+        
         var all =document.getElementsByClassName("status");
         for(var j=0; j<all.length; j++){
          all[j].parentElement.className="container";            
@@ -79,6 +82,7 @@ document.addEventListener("click",function(e){
     }
 
     if(e.target.id=="comp-all"){
+        
         var all =document.getElementsByClassName("status");
         for(var j=0; j<all.length; j++){
             all[j].textContent="DELETE";
@@ -99,7 +103,8 @@ document.addEventListener("click",function(e){
 document.getElementById("task").addEventListener("keydown",function(e){
         if(e.key=="Enter"){
             e.preventDefault();
-            saveTask(e);            
-        }        
+            saveTask(e);           
+        }    
+           
     });
 
